@@ -1,0 +1,205 @@
+access modifiers:
+public, private, protected, default
+
+
+modifier dataType fieldName;
+public int age;
+
+public class Cat {
+    public int age;         // access  modifier is public
+    String name;        // access modifier is default
+    void speak() {          // access modifier is default 
+        // work
+    }
+    public void sleep() {       // access modifier is public
+        // work
+    }
+}
+
+----------------------------
+scope of access modifiers
+    (important)
+----------------------------
+> default: same class, same package subclass, same package non-subclass, 
+> private: same class,
+> protected: same class, same package subclass, same package non-subclass, different package subclass,
+> public: same class, same package subclass, same package non-subclass, different package subclass, different package non-subclass
+
+
+--------------------------------
+Function/Method overloading:
+--------------------------------
+> multiple methods with "same name" but "different signature" 
+    i.e. different no of parameters, and/or different data type of parameters
+
+eg.
+    public void display() { // code }
+    public void display(String name) { // code }
+    public void display(String name, int id) { // code }
+    
+
+Note:
+    public void display() {  // code }
+    public int display() { // code }
+these are not overloaded methods, it will give COMPILATION ERROR
+
+
+----------------
+Constructor:
+----------------
+    is used when we want to initialize data members of a class
+    automatically called when an instance/object of class is created
+    has same name as that of class
+    no return type
+
+--------------------------------
+Constructor overloading:
+--------------------------------
+    similar to method overloading
+    multiple constructors with different signatures (types and no of parameters)
+
+
+----------------
+this keyword    (state, and behavior)
+----------------
+    refers to the data members/properties and member functions/methods of the class in which it is being used
+     used when same name parameters are passed to a function as the name of the class properties, this keyword is used that time to access class properties.
+     
+     used to access constructor of a class (when overloaded constructors are there, one can call the other like this)
+        this();
+    makes a call to default constructor of the class (should always be first line in any constructor)
+    
+
+
+-----------------------
+Static Keyword in Java
+-----------------------
+* static variables
+    static int count;
+        a static variable is called class variable
+
+* static methods
+    static void foo() {}
+        a static method is called class method
+
+there is no need of creating an object/instance of class to access static varible or method, it can be directly accessed as 
+    className.variableName;             (unlike c++ className::variableName)
+or
+    className.methodName();             (unlike c++ className::methodName())
+
+
+* static block
+    static {
+        // some code
+    }
+        A static block is automatically called when the class is loaded
+
+* static inner class
+    class Test {
+        static class InnerStatic {
+            // some code
+        }
+    }
+
+
+
+Note: static methods can directly access static members or methods ONLY, they can't directly access non-static members or methods
+ 
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+                            INHERITANCE
+
+---------------------------------------------------------------------------
+Object oriented programming
+code reusability
+
+
+Person  (parent/base class)
+|-> Programmer, Dancer, Singer      (child / subclasses of parent class)
+
+
+
+this is IS A relationship
+
+    a programmer IS A person, 
+    a dancer IS A person, 
+    a singer IS A person
+
+
+class SubClass extends SuperClass {
+    // methods or fields
+}
+
+
+Types of Inheritance
+1. Single Inheritance
+    when a class inherits from one base class only, it is called single inheritance
+
+2. Multiple Inheritance     (can't be implemented in Java)
+
+3. Multilevel Inheritance
+    when there is a chain of inheritance it is called multilevel inheritance
+
+4. Hierarchical Inheritance
+    when two or more classes inherit from single class, it is called hierarchical inheritance
+    
+5. Hybrid Inheritance       (can't be implemented in Java)
+
+but Java can only implement 
+Single Inheritance, Multilevel Inheritance, and Hierarchical Inheritance
+for others :
+Java says : can't extend multiple classes / hybrid classes 
+
+
+Method Overriding
+    when a child class implements a method which is already implemented in its parent class, it is called method overriding
+    It is one of the way how java manages Run time polymorphism
+
+
+
+Compile Time Polymorphism: Method overloading
+    (In the case of Overloading, you are using static (compile-time) polymorphism because the compiler is aware of exactly which method you are calling.)
+
+Runtime/dynamic polymorphism: Method overriding
+    (In the case of Overloading, you are using static (compile-time) polymorphism because the compiler is aware of exactly which method you are calling.)
+
+
+
+Parent can hold instance of child class, but child cannot hold instance of parent.
+
+
+
+-------------------------------------
+        Super Keyword
+-------------------------------------
+> accessing immediate parent class's 
+    methods                 super.display()     (useful when child has overridden base's method, and still needs to access Base's version first)
+    constructors            super(..params)
+    members                 super.age         (useful when current class has same variable in current scope)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
